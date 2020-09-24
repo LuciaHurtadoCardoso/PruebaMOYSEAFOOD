@@ -1,0 +1,36 @@
+<app-detalle-user *ngIf="usuarioSeleccionado" [usuario]="usuarioSeleccionado"></app-detalle-user>
+<div class="card border-primary mt-3 mb-3">
+
+    <div class="card-header">Listado de usuarios</div>
+
+    <div class="card-body text-primary">
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input [(ngModel)]="usuario_name" /></td>
+                    <td><input [(ngModel)]="usuario_username" /></td>
+                    <td><input [(ngModel)]="usuario_email" /></td>
+                    <td><input [(ngModel)]="usuario_phone" /></td>
+                </tr>
+                <tr *ngFor="let usuario of usuarios  | filter:{name:usuario_name} | filter:{username:usuario_username} | filter:{email:usuario_email} | filter:{phone:usuario_phone}">
+                    <td>{{usuario.name}}</td>
+                    <td>{{usuario.username}}</td>
+                    <td>{{usuario.email}}</td>
+                    <td>{{usuario.phone}}</td>
+                    <td>
+                            <button type="button" (click)="abrirModal(usuario)" class="btn btn-success btn-sm">Editar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
