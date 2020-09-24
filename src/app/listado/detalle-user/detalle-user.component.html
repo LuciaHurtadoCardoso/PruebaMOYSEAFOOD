@@ -1,0 +1,37 @@
+<div *ngIf="detalleUser.modal" class="abrir-modal animacion fadeIn">
+        <div class="modal" tabindex="-1" role="dialog" style="display: block;">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Editar la información del usuario</h5>
+                        <button (click)="cerrarModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm">
+    
+                                    <ul *ngIf="usuario" class="list-group text-dark mb-3">
+                                        <li class="list-group-item active"><strong>Name: </strong> {{usuario.name}}</li>
+                                        <li class="list-group-item"><strong>Username: </strong> {{usuario.username}}</li>
+                                        <li class="list-group-item"><strong>Email: </strong> <input type="text" [(ngModel)]="usuario.email" value="{{usuario.email}}"/> </li>
+                                        <li class="list-group-item"><strong>Address: </strong> {{usuario.address.street}},{{usuario.address.suite}}, {{usuario.address.city}}, {{usuario.address.zipcode}}, {{usuario.address.geo.lat}}, {{usuario.address.geo.lng}}</li>
+                                        <li class="list-group-item"><strong>Phone: </strong> <input type="text" [(ngModel)]="usuario.phone" value="{{usuario.phone}}"/> </li>
+                                        <li class="list-group-item"><strong>Website: </strong> {{usuario.website}}</li>
+                                        <li class="list-group-item"><strong>Company: </strong> {{usuario.company.name}}, {{usuario.company.catchPhrase}}, {{usuario.company.bs}}</li>
+                                    </ul>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button (click)="update()" type="button" class="btn btn-secondary"
+                            data-dismiss="modal">Editar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
